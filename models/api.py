@@ -12,19 +12,19 @@ def post_create_users(name, job):
     return response
 
 
-def get_user(id):
-    response = reqres_session.get(f'/api/users/{id}')
+def get_user(id_user):
+    response = reqres_session.get(f'/api/users/{id_user}')
     return response
 
 
-def update_user(id, name, job):
+def update_user(id_user, name, job):
     json = {'name': name, 'job': job}
-    response = reqres_session.put(f'/api/users/{id}', json=json)
+    response = reqres_session.put(f'/api/users/{id_user}', json=json)
     return response
 
 
-def delete_user(id):
-    response = reqres_session.delete(f'/api/users/{id}')
+def delete_user(id_user):
+    response = reqres_session.delete(f'/api/users/{id_user}')
     return response
 
 
