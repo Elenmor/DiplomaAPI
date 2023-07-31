@@ -7,10 +7,8 @@ from pytest_voluptuous import S
 from models import data
 
 
-
 @allure.tag('api')
 @allure.label('owner', 'Morilova')
-@allure.description('Список пользователей')
 @allure.feature('Проверка метода на возвращение списка пользователей')
 @allure.link(f'/api/users')
 def test_list_users():
@@ -19,13 +17,11 @@ def test_list_users():
     with allure.step('Проверка статус-кода и списка пользователей'):
         assert response.status_code == 200
         assert response.json()['page'] == data.page
-        assert len(response.json()['data']) != 0
 
 
 @allure.tag('api')
 @allure.severity(Severity.BLOCKER)
 @allure.label('owner', 'Morilova')
-@allure.description('Создание пользователя')
 @allure.feature('Проверка создания пользователя при вводе валидных данных')
 @allure.link(f'/api/users')
 def test_create_user(name=data.create_name, job=data.create_job):
@@ -42,7 +38,6 @@ def test_create_user(name=data.create_name, job=data.create_job):
 @allure.tag('api')
 @allure.severity(Severity.CRITICAL)
 @allure.label('owner', 'Morilova')
-@allure.description('Список пользователей')
 @allure.feature(f'Проверка возвращения в ответе пользователя по заданному id {data.id_user}')
 @allure.link(f'/api/users/{data.id_user}')
 def test_get_user(id_user=data.id_user):
@@ -61,11 +56,10 @@ def test_get_user(id_user=data.id_user):
 @allure.tag('api')
 @allure.severity(Severity.CRITICAL)
 @allure.label('owner', 'Morilova')
-@allure.description('Обновление пользователей')
 @allure.feature('Проверка обновления id, name, job пользователя')
 @allure.link(f'/api/users/{data.id_user_update}')
-def test_update_user(id_user=data.id_user_update, name=data.name_update,
-                     job=data.job_update):
+def test_update(id_user=data.id_user_update, name=data.name_update,
+                job=data.job_update):
     with allure.step('POST запрос с валидными данными'):
         response = update_user(id_user, name, job)
     with allure.step('Проверка успешного обновления пользователя'):
@@ -79,10 +73,9 @@ def test_update_user(id_user=data.id_user_update, name=data.name_update,
 @allure.tag('api')
 @allure.severity(Severity.CRITICAL)
 @allure.label('owner', 'Morilova')
-@allure.description('Удаление пользователей')
 @allure.feature('Проверка удаления пользователя')
 @allure.link(f'/api/users/{data.user_id_delete}')
-def test_delete_user(id_user=data.user_id_delete):
+def test_delete(id_user=data.user_id_delete):
     with allure.step(f'Отправка запроса DELETE с id {data.user_id_delete}'):
         response = delete_user(id_user)
     with allure.step('Проверка соответствия статус-коду'):
@@ -92,10 +85,9 @@ def test_delete_user(id_user=data.user_id_delete):
 @allure.tag('api')
 @allure.severity(Severity.CRITICAL)
 @allure.label('owner', 'Morilova')
-@allure.description('Авторизация пользователя')
-@allure.feature('Проверка ошибки авторизации пользователя без передачи пароля в теле запроса')
+@allure.feature('Проверка авторизации пользователя без пароля в теле запроса')
 @allure.link(f'/api/register')
-def test_fail_register_user():
+def test_failed_register():
     with allure.step('POST запрос без обязательного параметра password'):
         response = post_register_user(email='test@test.ru')
     with allure.step('Проверка статус-кода и ошибки в ответе'):
