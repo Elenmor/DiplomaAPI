@@ -28,7 +28,7 @@
 
 ### <img width="5%" title="Jenkins" src="images/logo/jenkins.png"> Запуск проекта в Jenkins
 
-### [Job](https://jenkins.autotests.cloud/job/Okuneva_Reqres_API_tests/)
+### [Job](https://jenkins.autotests.cloud/job/005_Morilova_diplomaAPI/)
 
 ##### При нажатии на "Собрать сейчас" начнется сборка тестов и их прохождение.
 ![This is an image](images/screenshots/jenkins.png)
@@ -48,7 +48,7 @@ allure.bat serve
 
 
 ### <img width="5%" title="Allure Report" src="images/logo/allure_report.png"> Allure report.
-### [Report](https://jenkins.autotests.cloud/job/Okuneva_Reqres_API_tests/2/allure/)
+### [Report](https://jenkins.autotests.cloud/job/005_Morilova_diplomaAPI/11/allure/)
 ##### После прохождения тестов, результаты можно посмотреть в Allure отчете, где так же содержится ссылка на Jenkins
 ![This is an image](images/screenshots/AllureReport.png)
 
@@ -63,7 +63,7 @@ allure.bat serve
 
 ### <img width="5%" title="Allure TestOps" src="images/logo/allure_testops.png"> Интеграция с Allure TestOps
 
-### [Dashboard](https://allure.autotests.cloud/project/3562/dashboards)
+### [Dashboard](https://allure.autotests.cloud/project/3592/dashboards)
 
 ##### Так же вся отчетность сохраняется в Allure TestOps, где строятся аналогичные графики.
 ![This is an image](images/screenshots/AllureTestOps.png)
