@@ -6,7 +6,6 @@ from models.api import get_list_users, post_create_users, update_user, \
 from pytest_voluptuous import S
 
 
-
 @allure.tag('api')
 @allure.label('owner', 'Morilova')
 @allure.feature('Проверка метода на возвращение списка пользователей')

@@ -42,7 +42,7 @@ pytest .
 
 Получение отчёта:
 ```bash
-allure.bat serve
+allure.bat serve allure-results
 ```
 <!-- Allure TestOps -->
 
